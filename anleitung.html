@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anleitung &amp; Spielregeln – FreeBet</title>
+<style>
+:root{--navy:#14336e;--bg:#eef1f6;--card:#fff;--line:#e3e7ef;--ink:#0f1729;--ink2:#5b6577;--ink3:#9aa3b4;--win:#16a34a;--loss:#dc2626;--tint:#eef3fb;--shadow:0 1px 2px rgba(15,23,41,.04),0 6px 16px rgba(15,23,41,.05)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;line-height:1.7;padding:1.6rem 1rem 3rem;-webkit-font-smoothing:antialiased}
+.wrap{max-width:760px;margin:0 auto}
+.logo{font-weight:800;font-size:1.5rem;letter-spacing:-.5px;color:var(--navy);margin-bottom:.25rem}
+.back{display:inline-block;color:var(--ink3);font-size:.82rem;text-decoration:none;margin-bottom:1.6rem;font-weight:600}
+.back:hover{color:var(--navy)}
+h1{font-size:1.7rem;font-weight:800;letter-spacing:-.5px;margin-bottom:.4rem}
+.updated{font-size:.82rem;color:var(--ink3);margin-bottom:1.4rem}
+.lead{color:var(--ink2);font-size:.97rem;margin-bottom:1.5rem;line-height:1.7}
+h2{font-size:1rem;font-weight:800;color:var(--navy);margin:1.5rem 0 .5rem;letter-spacing:-.2px;text-transform:none}
+h3{font-size:.92rem;font-weight:700;color:var(--ink);margin:1rem 0 .35rem}
+p,address,li{font-size:.9rem;color:var(--ink2);font-style:normal}
+a{color:var(--navy);text-decoration:none;font-weight:600}
+a:hover{text-decoration:underline}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.3rem 1.4rem;margin-bottom:1rem;box-shadow:var(--shadow)}
+ul,ol{padding-left:1.2rem}
+li{margin-bottom:.4rem}
+strong{color:var(--ink)}
+.notice{background:var(--tint);border:1px solid #d8e3f5;border-radius:12px;padding:1rem 1.1rem;font-size:.84rem;color:#2a4a83;margin-top:2rem}
+.important{background:#fdedeb;border:1px solid #f6c9c4;border-radius:10px;padding:1rem;font-size:.85rem;color:#a3271b;margin:.75rem 0}
+.highlight{background:var(--tint);border-left:3px solid var(--navy);padding:.75rem 1rem;border-radius:0 8px 8px 0;margin:.75rem 0;font-size:.86rem;color:#2a4a83}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.1rem 1.3rem;margin-bottom:1.4rem;box-shadow:var(--shadow)}
+.toc a{display:block;color:var(--ink2);font-size:.88rem;padding:.2rem 0;font-weight:600}
+.toc a:hover{color:var(--navy);text-decoration:none}
+.pill{display:inline-block;background:var(--tint);border:1px solid #d8e3f5;color:var(--navy);border-radius:7px;padding:.05rem .5rem;font-size:.82rem;font-weight:700;margin:.1rem .15rem}
+table{width:100%;border-collapse:collapse;margin:.5rem 0 .8rem;font-size:.86rem}
+th,td{text-align:left;padding:.5rem .55rem;border-bottom:1px solid var(--line);color:var(--ink2);vertical-align:top}
+th{color:var(--ink);font-weight:700}
+.note{background:var(--tint);border:1px solid #d8e3f5;border-radius:10px;padding:.9rem 1rem;font-size:.86rem;color:#2a4a83;margin:.6rem 0}
+.warn{background:#fff6e6;border:1px solid #ffe2a8;border-radius:10px;padding:1rem;font-size:.86rem;color:#8a5a00;margin-top:1.5rem}
+.win{color:var(--win);font-weight:700}.loss{color:var(--loss);font-weight:700}
+.step{display:flex;gap:.7rem;margin-bottom:.7rem}
+.step .n{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:.82rem;display:flex;align-items:center;justify-content:center}
+.step .t{font-size:.9rem;color:var(--ink2)}
+</style>
+<link rel="stylesheet" href="fonts.css">
+</head>
+<body>
+<div class="wrap">
+  <div class="logo">FreeBet</div>
+  <a class="back" href="index.html">← Zurück zur Startseite</a>
+
+  <h1>Anleitung &amp; Spielregeln</h1>
+  <p class="lead">So funktioniert FreeBet – tippe Fußballspiele mit <strong>Münzen</strong> (der Spielwährung), fordere deine Freunde in privaten Ligen heraus und kletter im Ranking nach oben. Komplett kostenlos, ganz ohne echtes Geld.</p>
+
+  <div class="toc">
+    <a href="#was">1 · Was ist FreeBet?</a>
+    <a href="#start">2 · Konto anlegen &amp; anmelden</a>
+    <a href="#ligen">3 · Die Spielmodi (Bundesliga &amp; WM 2026)</a>
+    <a href="#tipps">4 · Die Tipp-Arten &amp; Quoten</a>
+    <a href="#gruppen">5 · Gruppenliga (gegen Freunde)</a>
+    <a href="#auswertung">6 · Automatische Auswertung</a>
+    <a href="#ranking">7 · Globales Ranking</a>
+    <a href="#tipps2">8 · Tipps &amp; gut zu wissen</a>
+  </div>
+
+  <div class="card" id="was">
+    <h2>1 · Was ist FreeBet?</h2>
+    <p>FreeBet ist eine kostenlose Unterhaltungs-App, in der du Sportergebnisse tippst – mit <strong>fiktiven Münzen</strong>. Es wird <strong>kein echtes Geld</strong> eingesetzt, gewonnen oder ausgezahlt. Es geht um Spaß, Angeberrechte und den Wettkampf mit Freunden.</p>
+    <ul>
+      <li><strong>Allein tippen:</strong> Mit dem <em>Wett-Tracker</em> baust du Tippscheine und verfolgst, wie gut du liegst.</li>
+      <li><strong>Gegen Freunde:</strong> In einer <em>Gruppenliga</em> tippt ihr alle mit gleichem Startguthaben und messt euch in einer Rangliste.</li>
+      <li><strong>Echte Daten:</strong> Spielpläne, Ergebnisse und Quoten basieren auf realen Spielen (Bundesliga &amp; WM 2026).</li>
+    </ul>
+    <div class="note">FreeBet richtet sich ausschließlich an Personen <strong>ab 18 Jahren</strong>. Alle Guthaben sind fiktiv und ohne realen Wert.</div>
+  </div>
+
+  <div class="card" id="start">
+    <h2>2 · Konto anlegen &amp; anmelden</h2>
+    <div class="step"><div class="n">1</div><div class="t"><strong>Registrieren:</strong> Name, E-Mail und Passwort eingeben. Du bestätigst, dass du mindestens 18 Jahre alt bist, sowie die AGB und die Datenschutzerklärung.</div></div>
+    <div class="step"><div class="n">2</div><div class="t"><strong>Einladungscode:</strong> Falls der Beitritt aktuell nur mit Code möglich ist, gibst du deinen Einladungscode ein. Jeder Code ist <strong>einmalig</strong> und wird mit der Registrierung verbraucht. (Ob ein Code nötig ist, legt der Betreiber fest.)</div></div>
+    <div class="step"><div class="n">3</div><div class="t"><strong>E-Mail bestätigen:</strong> Du bekommst eine Bestätigungs-Mail. Erst nach dem Klick auf den Link ist dein Konto freigeschaltet. (Tipp: auch den Spam-Ordner prüfen.)</div></div>
+    <div class="step"><div class="n">4</div><div class="t"><strong>Anmelden:</strong> Danach meldest du dich jederzeit mit E-Mail und Passwort an. Dein Konto und alle Daten sind geräteübergreifend verfügbar.</div></div>
+  </div>
+
+  <div class="card" id="ligen">
+    <h2>3 · Die Spielmodi</h2>
+    <p>Oben rechts wählst du über das Liga-Menü zwischen den aktuell verfügbaren Modi. Über den <strong>Aktualisieren</strong>-Button lädst du jederzeit die neuesten Spiele und Ergebnisse.</p>
+
+    <h3>⚽ Bundesliga</h3>
+    <ul>
+      <li><strong>Spielplan</strong> mit allen anstehenden Partien und Quoten.</li>
+      <li><strong>Tabelle:</strong> In diesem Modus gibt es eine Liga-Tabelle, sodass du den aktuellen Stand der Saison im Blick hast.</li>
+      <li>Spiele lassen sich bis kurz vor Anpfiff tippen.</li>
+    </ul>
+
+    <h3>🏆 WM 2026</h3>
+    <ul>
+      <li><strong>Turniermodus</strong> mit allen Begegnungen der Weltmeisterschaft 2026.</li>
+      <li><strong>Spielbezogene Sperre:</strong> Jedes Spiel wird einzeln <strong>zum Anpfiff gesperrt</strong> – du kannst also nur Partien tippen, die noch nicht begonnen haben.</li>
+      <li>Keine klassische Tabelle (Turnierformat statt Liga).</li>
+    </ul>
+    <div class="note">Die Quoten werden automatisch aus den Spieldaten berechnet und können sich bis zum Anpfiff ändern.</div>
+  </div>
+
+  <div class="card" id="tipps">
+    <h2>4 · Die Tipp-Arten &amp; Quoten</h2>
+    <p>Pro Spiel kannst du aus verschiedenen Tipp-Arten wählen. Jede Auswahl hat eine <strong>Quote</strong>. Kombinierst du mehrere Tipps auf einem Schein, werden die Quoten <strong>multipliziert</strong> (Kombi-Schein) – höhere Quote, aber alle Tipps müssen stimmen.</p>
+    <table>
+      <tr><th>Tipp</th><th>Bedeutung</th></tr>
+      <tr><td><span class="pill">1</span></td><td>Heimsieg</td></tr>
+      <tr><td><span class="pill">X</span></td><td>Unentschieden</td></tr>
+      <tr><td><span class="pill">2</span></td><td>Auswärtssieg</td></tr>
+      <tr><td><span class="pill">1X</span></td><td>Doppelte Chance: Heimsieg oder Unentschieden</td></tr>
+      <tr><td><span class="pill">X2</span></td><td>Doppelte Chance: Unentschieden oder Auswärtssieg</td></tr>
+      <tr><td><span class="pill">12</span></td><td>Doppelte Chance: Heim- oder Auswärtssieg (kein Remis)</td></tr>
+      <tr><td><span class="pill">Über 2,5</span></td><td>Mehr als 2,5 Tore im Spiel (also 3+ Tore)</td></tr>
+      <tr><td><span class="pill">Unter 2,5</span></td><td>Weniger als 2,5 Tore (also 0–2 Tore)</td></tr>
+      <tr><td><span class="pill">Über 3,5</span></td><td>Mehr als 3,5 Tore (also 4+ Tore)</td></tr>
+      <tr><td><span class="pill">Unter 3,5</span></td><td>Weniger als 3,5 Tore (also 0–3 Tore)</td></tr>
+    </table>
+    <p><strong>Möglicher Gewinn = Einsatz × Gesamtquote.</strong> Beispiel: 100 Münzen auf eine Kombiquote von 3,2 ergeben 320 Münzen möglichen Gewinn.</p>
+  </div>
+
+  <div class="card" id="gruppen">
+    <h2>5 · Gruppenliga (gegen Freunde)</h2>
+    <p>Hier wird's kompetitiv: Alle in der Gruppe starten mit dem gleichen Guthaben und tippen um die Spitze der Rangliste.</p>
+
+    <h3>Gruppe erstellen</h3>
+    <p>Beim Erstellen legst du fest:</p>
+    <ul>
+      <li><strong>Name &amp; Liga</strong> der Gruppe (Bundesliga oder WM 2026).</li>
+      <li><strong>Startguthaben</strong> für alle Mitglieder.</li>
+      <li><strong>Mindest- und Höchsteinsatz</strong> pro Schein.</li>
+      <li><strong>Maximale Scheine pro Spieltag</strong> – begrenzt, wie oft jeder tippen darf.</li>
+      <li><strong>Gegner-Sichtbarkeit</strong> (siehe unten).</li>
+    </ul>
+    <p>Nach dem Erstellen erhältst du einen <strong>Gruppencode</strong>, den du an deine Freunde weitergibst.</p>
+
+    <h3>Gruppe beitreten</h3>
+    <p>Code eingeben, deinen Spielernamen wählen, fertig. Du startest mit dem festgelegten Guthaben.</p>
+
+    <h3>Die vier Bereiche der Gruppe</h3>
+    <table>
+      <tr><th>Bereich</th><th>Inhalt</th></tr>
+      <tr><td><strong>Abgabe</strong></td><td>Tippschein bauen, Einsatz festlegen und abgeben.</td></tr>
+      <tr><td><strong>Tabelle</strong></td><td>Rangliste der Gruppe – sortiert nach aktuellem Guthaben.</td></tr>
+      <tr><td><strong>Meine Scheine</strong></td><td>Deine eigenen abgegebenen Scheine (offen / entschieden / alle).</td></tr>
+      <tr><td><strong>Konkurrenz</strong></td><td>Die Scheine der anderen Mitglieder – je nach Sichtbarkeits-Einstellung.</td></tr>
+    </table>
+
+    <h3>Einsatz, Quote &amp; Gewinn</h3>
+    <ul>
+      <li>Beim Abgeben wird der <strong>Einsatz sofort vom Guthaben abgezogen</strong>.</li>
+      <li>Gewinnst du den Schein, wird der <strong>mögliche Gewinn</strong> (Einsatz × Gesamtquote) deinem Guthaben gutgeschrieben.</li>
+      <li>Verlierst du, ist der Einsatz weg – wie bei einer echten Wette, nur mit Münzen.</li>
+    </ul>
+
+    <h3>Gegner-Sichtbarkeit</h3>
+    <p>Der Ersteller wählt, wann die Tipps der anderen sichtbar sind:</p>
+    <ul>
+      <li><strong>Immer sichtbar:</strong> Du siehst die Scheine der Mitspieler jederzeit.</li>
+      <li><strong>Erst ab Anpfiff:</strong> Fremde Tipps werden erst sichtbar, wenn das jeweilige Spiel begonnen hat – so kann niemand abschauen.</li>
+    </ul>
+
+    <h3>Verwaltung (nur Ersteller/Admin)</h3>
+    <ul>
+      <li>Einstellungen nachträglich anpassen (Einsatz-Limits, Scheine pro Spieltag, Gegner-Sichtbarkeit).</li>
+      <li>Auswertung bei Bedarf manuell anstoßen.</li>
+      <li>Gruppe löschen.</li>
+    </ul>
+  </div>
+
+  <div class="card" id="auswertung">
+    <h2>6 · Automatische Auswertung</h2>
+    <p>FreeBet wertet deine Scheine automatisch aus, sobald die zugehörigen Spiele beendet sind – du musst nichts manuell eintragen.</p>
+    <ul>
+      <li>Jeder einzelne Tipp wird gewertet, sobald <strong>sein</strong> Spiel offiziell beendet ist.</li>
+      <li>Ein Schein ist <span class="loss">sofort verloren</span>, sobald <strong>ein einziger</strong> Tipp falsch ist – auch wenn andere Spiele noch laufen.</li>
+      <li>Ein Schein ist <span class="win">gewonnen</span>, wenn <strong>alle</strong> Tipps richtig sind. Dann wird der mögliche Gewinn gutgeschrieben.</li>
+      <li>Bereits entschiedene Scheine bleiben unverändert (keine Doppel-Gutschrift).</li>
+    </ul>
+    <div class="note">Ergebnisse kommen aus öffentlichen Quellen (OpenLigaDB für die Bundesliga, openfootball für die WM). Kurze Verzögerungen nach Abpfiff sind möglich – mit <strong>Aktualisieren</strong> holst du den neuesten Stand.</div>
+  </div>
+
+  <div class="card" id="ranking">
+    <h2>7 · Globales Ranking</h2>
+    <p>Im Gruppen-Bereich findest du das <strong>globale Ranking</strong> über alle Gruppen hinweg:</p>
+    <ul>
+      <li><strong>Top-Einzelgewinne:</strong> die höchsten Gewinne aus einem einzelnen Schein.</li>
+      <li><strong>Gesamtgewinn:</strong> wer über alle Gruppen den meisten Münzen-Gewinn (Guthaben über dem Startwert) erzielt hat.</li>
+    </ul>
+    <p>So siehst du, wie du im Vergleich zu allen anderen Tippern abschneidest.</p>
+  </div>
+
+  <div class="card" id="tipps2">
+    <h2>8 · Tipps &amp; gut zu wissen</h2>
+    <ul>
+      <li>Du kannst jederzeit zwischen Bundesliga und WM 2026 wechseln – jede Liga hat ihre eigenen Gruppen.</li>
+      <li>Kombi-Scheine bringen höhere Quoten, sind aber riskanter (alle Tipps müssen stimmen).</li>
+      <li>In Gruppen mit „Erst ab Anpfiff" lohnt es sich, früh zu tippen und Ruhe zu bewahren.</li>
+      <li>Dein Fortschritt wird in deinem Konto gespeichert – du kannst das Gerät wechseln, ohne etwas zu verlieren.</li>
+    </ul>
+  </div>
+
+  <div class="warn">
+    ⚠️ <strong>FreeBet ist keine Glücksspiel-App.</strong> Es werden keine echten Einsätze verarbeitet, gewonnen oder ausgezahlt. Alle Geldbeträge sind fiktiv und haben keinen realen Wert. Nutzung ab 18 Jahren.
+  </div>
+
+  <p style="margin-top:2rem;font-size:.75rem;color:var(--tx3);text-align:center">
+    Stand: Juni 2026 · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="agb.html">AGB</a>
+  </p>
+</div>
+</body>
+</html>

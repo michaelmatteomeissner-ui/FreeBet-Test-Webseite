@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FreeBet – Tippe mit Freunden auf Fußball</title>
+<meta name="description" content="FreeBet – die kostenlose App für Fußball-Tipps mit Freunden. Bundesliga, WM 2026 und mehr – mit Münzen statt echtem Geld.">
+<link rel="stylesheet" href="fonts.css">
+<style>
+:root{
+  --navy:#14336e; --navy-d:#0a1e47;
+  --hero:linear-gradient(140deg,#1b3f80 0%,#13316c 45%,#0a1e47 100%);
+  --bg:#eef1f6; --card:#fff; --line:#e3e7ef;
+  --ink:#0f1729; --ink2:#5b6577; --ink3:#9aa3b4;
+  --win:#16a34a; --loss:#dc2626; --tint:#eef3fb;
+  --shadow:0 1px 2px rgba(15,23,41,.04),0 8px 22px rgba(15,23,41,.06);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:.8rem 2rem;background:rgba(238,241,246,.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.nav-logo{display:flex;align-items:center;gap:.55rem;font-weight:800;font-size:1.3rem;letter-spacing:-.4px;color:var(--navy);text-decoration:none}
+.nav-logo .mk{width:30px;height:30px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center}
+.nav-logo .mk svg{width:18px;height:18px}
+.nav-links{display:flex;align-items:center;gap:1.6rem}
+.nav-links a{font-size:.86rem;color:var(--ink2);text-decoration:none;font-weight:600;transition:.15s}
+.nav-links a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy)!important;color:#fff!important;border-radius:10px;padding:.5rem 1.1rem;font-weight:700;transition:.2s}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(20,51,110,.25)}
+.hamburger{display:none;flex-direction:column;gap:4px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{width:22px;height:2px;background:var(--navy);border-radius:2px}
+.mobile-menu{display:none;position:fixed;top:54px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:.85rem 1.5rem;flex-direction:column;gap:.4rem;z-index:199;box-shadow:var(--shadow)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:.92rem;color:var(--ink2);text-decoration:none;padding:.55rem .25rem;font-weight:600;border-bottom:1px solid var(--line)}
+.mobile-menu a:last-child{border-bottom:none;color:#fff;background:var(--navy);text-align:center;border-radius:10px;margin-top:.4rem}
+
+/* SECTIONS */
+section{padding:4.5rem 2rem}
+.wrap{max-width:1080px;margin:0 auto}
+.section-label{font-size:.72rem;text-transform:uppercase;letter-spacing:1.8px;color:var(--navy);font-weight:800;margin-bottom:.6rem}
+.section-title{font-size:clamp(1.9rem,4.5vw,2.7rem);font-weight:800;letter-spacing:-.8px;line-height:1.05;margin-bottom:.7rem}
+.section-sub{font-size:.97rem;color:var(--ink2);max-width:540px;line-height:1.7;margin-bottom:2.4rem}
+
+/* HERO */
+#hero{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:7rem 1.5rem 4rem;position:relative;overflow:hidden;background:var(--hero);color:#fff}
+#hero::after{content:"";position:absolute;inset:0;background:radial-gradient(60% 50% at 50% -5%,rgba(255,255,255,.14),transparent 70%)}
+.hero-inner{position:relative;z-index:1;max-width:760px}
+.hero-badge{display:inline-flex;align-items:center;gap:.45rem;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;padding:.4rem 1rem;font-size:.76rem;font-weight:600;color:#dfe6f4;margin-bottom:1.6rem}
+.hero h1{font-size:clamp(2.6rem,8vw,4.6rem);font-weight:900;letter-spacing:-1.5px;line-height:1;margin-bottom:1.1rem}
+.hero h1 span{color:#9fc0ff}
+.hero-sub{font-size:clamp(1rem,2.4vw,1.15rem);color:#c2cce0;max-width:520px;margin:0 auto 2.3rem;line-height:1.7}
+.hero-btns{display:flex;gap:.85rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem}
+.btn-primary{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--navy);border:none;border-radius:12px;padding:.9rem 1.9rem;font-size:.96rem;font-weight:800;cursor:pointer;text-decoration:none;transition:.2s;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:.9rem 1.9rem;font-size:.96rem;font-weight:700;cursor:pointer;text-decoration:none;transition:.2s}
+.btn-ghost:hover{background:rgba(255,255,255,.16)}
+.store-row{display:flex;gap:.7rem;flex-wrap:wrap;justify-content:center}
+.store-pill{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:.6rem 1.1rem;text-decoration:none;color:#fff;transition:.15s}
+.store-pill:hover{background:rgba(255,255,255,.14)}
+.store-pill-icon{font-size:1.25rem}
+.store-pill-text{text-align:left;line-height:1.15}
+.store-pill-text .sup{display:block;font-size:.56rem;color:#aebbd8;text-transform:uppercase;letter-spacing:.5px}
+.store-pill-text .name{font-size:.85rem;font-weight:700}
+.store-pill-text .soon{font-size:.58rem;color:#9fc0ff;font-weight:600}
+.disclaimer-bar{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:.65rem 1.25rem;font-size:.78rem;color:#c2cce0;text-align:center;max-width:600px;margin:2rem auto 0}
+
+/* FEATURES */
+#features{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem}
+.feat{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:1.5rem;transition:.2s}
+.feat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+.feat-icon{width:48px;height:48px;border-radius:13px;background:var(--tint);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:.95rem}
+.feat-title{font-size:1rem;font-weight:800;margin-bottom:.4rem}
+.feat-desc{font-size:.86rem;color:var(--ink2);line-height:1.65}
+
+/* STEPS */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.25rem}
+.step{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.4rem;box-shadow:var(--shadow)}
+.step-num{width:42px;height:42px;border-radius:12px;background:var(--navy);display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:.9rem}
+.step-title{font-size:1rem;font-weight:800;margin-bottom:.35rem}
+.step-desc{font-size:.86rem;color:var(--ink2);line-height:1.65}
+
+/* LIGEN */
+#ligen{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.league-pills{display:flex;flex-wrap:wrap;gap:.7rem}
+.lp{display:flex;align-items:center;gap:.55rem;background:var(--bg);border:1px solid var(--line);border-radius:100px;padding:.6rem 1.2rem;font-size:.9rem;font-weight:700;color:var(--ink)}
+.lp .em{font-size:1.1rem}
+
+/* CTA */
+#cta{text-align:center;background:var(--hero);color:#fff}
+#cta .section-label{color:#9fc0ff}
+#cta .section-sub{color:#c2cce0}
+
+/* FOOTER */
+footer{padding:2rem;display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;background:#fff;border-top:1px solid var(--line);font-size:.8rem;color:var(--ink3)}
+.footer-logo{font-weight:800;font-size:1.1rem;color:var(--navy);letter-spacing:-.3px}
+.footer-links{display:flex;gap:1.2rem;flex-wrap:wrap}
+.footer-links a{color:var(--ink2);text-decoration:none;font-weight:600}
+.footer-links a:hover{color:var(--navy)}
+
+@media(max-width:768px){
+  nav{padding:.7rem 1.1rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  section{padding:3.5rem 1.1rem}
+  #hero{padding:6rem 1.1rem 3.5rem}
+  .hero-btns{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-ghost{justify-content:center}
+  footer{flex-direction:column;align-items:flex-start;gap:.75rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#hero">
+    <span class="mk"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a15 15 0 0 1 4 10 15 15 0 0 1-4 10 15 15 0 0 1-4-10 15 15 0 0 1 4-10z"/><path d="M2 12h20"/></svg></span>
+    FreeBet
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#so-gehts">So geht's</a>
+    <a href="#ligen">Ligen</a>
+    <a href="https://freebet-pro.de/" class="nav-cta">App öffnen →</a>
+  </div>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menü"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#features" onclick="toggleMenu()">Features</a>
+  <a href="#so-gehts" onclick="toggleMenu()">So geht's</a>
+  <a href="#ligen" onclick="toggleMenu()">Ligen</a>
+  <a href="https://freebet-pro.de/" onclick="toggleMenu()">App öffnen →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">⚽ Kostenlos · Kein echtes Geld · Nur echter Spaß</div>
+    <h1>Kostenlos.<br><span>Kein echtes Geld.</span><br>Nur echter Spaß.</h1>
+    <p class="hero-sub">FreeBet ist die App für Fußball-Tipps unter Freunden. Tippt mit <strong>Münzen</strong> statt echtem Geld – wer hat das beste Gespür?</p>
+    <div class="hero-btns">
+      <a href="https://freebet-pro.de/" class="btn-primary">🚀 Jetzt kostenlos spielen</a>
+      <a href="#so-gehts" class="btn-ghost">Wie funktioniert's?</a>
+    </div>
+    <div class="store-row">
+      <a href="#" class="store-pill"><span class="store-pill-icon">🍎</span><span class="store-pill-text"><span class="sup">Demnächst im</span><span class="name">App Store</span><span class="soon">Coming Soon</span></span></a>
+      <a href="#" class="store-pill"><span class="store-pill-icon">🤖</span><span class="store-pill-text"><span class="sup">Demnächst bei</span><span class="name">Google Play</span><span class="soon">Coming Soon</span></span></a>
+    </div>
+    <div class="disclaimer-bar">⚠️ FreeBet verarbeitet <strong>kein echtes Geld</strong>. Alle Münzen sind fiktiv und ohne realen Wert.</div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="wrap">
+    <div class="section-label">Features</div>
+    <div class="section-title">Alles was du brauchst</div>
+    <div class="section-sub">Von der Freundesgruppe bis zur automatischen Auswertung – FreeBet hat alles für den perfekten Tipp-Abend.</div>
+    <div class="features-grid">
+      <div class="feat"><div class="feat-icon">🏆</div><div class="feat-title">Gruppenligen</div><div class="feat-desc">Private Gruppen mit Freunden – jeder startet mit Münzen und tippt auf den Spieltag. Der beste Tipper gewinnt.</div></div>
+      <div class="feat"><div class="feat-icon">📊</div><div class="feat-title">Dashboard &amp; Statistiken</div><div class="feat-desc">Dein persönliches Dashboard: Gewinn/Verlust, Trefferquote, Form und Mitspieler im Blick – frei zusammenstellbar.</div></div>
+      <div class="feat"><div class="feat-icon">⚡</div><div class="feat-title">Live-Daten</div><div class="feat-desc">Aktuelle Spielpläne, Tabellen und Ergebnisse – automatisch geladen für alle unterstützten Ligen und Events.</div></div>
+      <div class="feat"><div class="feat-icon">⏱️</div><div class="feat-title">Spieltag-Logik</div><div class="feat-desc">Ein Spieltag läuft von Freitag bis Sonntag. Jedes Spiel schließt einzeln zum Anpfiff – die übrigen bleiben offen.</div></div>
+      <div class="feat"><div class="feat-icon">🙈</div><div class="feat-title">Anti-Cheat</div><div class="feat-desc">Tipps der Mitspieler sind bis zum Anpfiff versteckt. Kein Abschauen – nur echtes Können und Wissen zählt.</div></div>
+      <div class="feat"><div class="feat-icon">🌍</div><div class="feat-title">WM 2026</div><div class="feat-desc">Alle Teams, alle Spiele, Gruppenphase und KO-Runde. Tippe auf die gesamte Weltmeisterschaft 2026.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="so-gehts">
+  <div class="wrap">
+    <div class="section-label">So funktioniert's</div>
+    <div class="section-title">In 4 Schritten dabei</div>
+    <div class="section-sub">Keine komplizierte Einrichtung – einfach registrieren und losspielen.</div>
+    <div class="steps-grid">
+      <div class="step"><div class="step-num">1</div><div class="step-title">Registrieren</div><div class="step-desc">Kostenlos mit E-Mail anmelden. Kein Abo, keine Kreditkarte, kein echtes Geld.</div></div>
+      <div class="step"><div class="step-num">2</div><div class="step-title">Gruppe erstellen</div><div class="step-desc">Wähle deine Liga, erstelle eine Gruppe und teile den Code mit deinen Freunden.</div></div>
+      <div class="step"><div class="step-num">3</div><div class="step-title">Schein abgeben</div><div class="step-desc">Spiele auswählen, Tipps kombinieren und den Schein rechtzeitig vor dem Anpfiff abgeben.</div></div>
+      <div class="step"><div class="step-num">4</div><div class="step-title">Gewinnen</div><div class="step-desc">Die App wertet automatisch aus. Wer am Ende die meisten Münzen hat, gewinnt.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIGEN -->
+<section id="ligen">
+  <div class="wrap">
+    <div class="section-label">Wettbewerbe</div>
+    <div class="section-title">Deine Ligen, deine Wahl</div>
+    <div class="section-sub">Wechsle jederzeit zwischen den Wettbewerben – jede Liga hat ihre eigenen Gruppen.</div>
+    <div class="league-pills">
+      <div class="lp"><span class="em">🇩🇪</span>Bundesliga</div>
+      <div class="lp"><span class="em">🇩🇪</span>2. Bundesliga</div>
+      <div class="lp"><span class="em">🌍</span>WM 2026</div>
+      <!-- <div class="lp"><span class="em">🌐</span>Alle Events</div> -->
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="wrap" style="max-width:600px;text-align:center">
+    <div class="section-label">Mitmachen</div>
+    <div class="section-title">Bereit zu tippen?</div>
+    <p class="section-sub" style="margin:0 auto 2rem">Kostenlos registrieren und sofort mit Freunden in der Gruppenliga starten.</p>
+    <a href="https://freebet-pro.de/" class="btn-primary">🚀 Jetzt kostenlos starten</a>
+    <div class="store-row" style="margin-top:1.5rem">
+      <a href="#" class="store-pill"><span class="store-pill-icon">🍎</span><span class="store-pill-text"><span class="sup">Demnächst im</span><span class="name">App Store</span></span></a>
+      <a href="#" class="store-pill"><span class="store-pill-icon">🤖</span><span class="store-pill-text"><span class="sup">Demnächst bei</span><span class="name">Google Play</span></span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">FreeBet</div>
+    <div style="margin-top:.25rem">© 2026 Michael Meißner · München</div>
+  </div>
+  <div class="footer-links">
+    <a href="https://freebet-pro.de/">App öffnen</a>
+    <a href="anleitung.html">Anleitung</a>
+    <a href="impressum.html">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="agb.html">AGB</a>
+    <a href="mailto:info@freebet-pro.de">Kontakt</a>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){ document.getElementById('mobileMenu').classList.toggle('open'); }
+window.addEventListener('scroll',function(){ document.getElementById('mobileMenu').classList.remove('open'); });
+</script>
+</body>
+</html>
